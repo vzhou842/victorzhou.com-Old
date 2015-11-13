@@ -1,0 +1,390 @@
+h2 {
+    font-size: 28px;
+    color: rgba(50,50,50,1.0);
+    margin: 0 0 50px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h3 {
+    font-size: 18px;
+    color: rgba(75,75,75,1.0);
+    margin: 0 0 25px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.column-left, .column-right {
+    float: left
+}
+
+.column-left {
+    width: 660px;
+    margin: 0 80px 20px 0
+}
+
+.column-right {
+    width: 260px
+}
+
+.contact-social-links {
+    margin: 0 0 35px;
+    list-style-type: none
+}
+
+.contact-social-links li {
+    margin-bottom: 5px
+}
+
+.contact-social-links small {
+    font-size: 14px;
+    float: right;
+    line-height: 38px;
+    color: rgba(58, 79, 92, .3)
+}
+
+.contact-social-links a {
+    padding: 8px 0 8px 0px;
+    font-weight: 300;
+    font-size: 20px;
+    border-radius: 3px
+}
+
+.contact-social-links a>span {
+    left: 0px
+}
+
+.contact-social-links .twitter {
+    color: rgba(0, 172, 237, 1.0);
+    background-position: -376px 8px
+}
+
+.contact-social-links .twitter>span {
+    background-color: rgba(0, 172, 237, 1.0)
+}
+
+.contact-social-links .linkedin {
+    color: rgba(0, 123, 182, 1.0);
+    background-position: -376px -42px
+}
+
+.contact-social-links .linkedin>span {
+    background-color: rgba(0, 123, 182, 1.0);
+}
+
+.contact-social-links .youtube {
+    color: rgba(229, 45, 39, 1.0);
+    background-position: -376px -42px
+}
+
+.contact-social-links .youtube>span {
+    background-color: rgba(229, 45, 39, 1.0);
+}
+
+.contact-social-links .github {
+    color: rgba(40, 40, 40, 1.0);
+    background-position: -376px -42px
+}
+
+.contact-social-links .github>span {
+    background-color: rgba(40, 40, 40, 1.0);
+}
+
+#hello-form {
+    display: none
+}
+
+fieldset {
+    border: none;
+    padding: 15px;
+    margin: 0;
+    position: relative
+}
+
+#result, #result-hello {
+    display: none;
+    background: #FFF;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center
+}
+
+#result span, #result-hello span {
+    display: block;
+    color: rgba(0, 0, 0, .6);
+    font-size: 18px;
+    font-weight: 300
+}
+
+#result .heading, #result-hello .heading {
+    font-size: 24px;
+    color: #212934;
+    margin-bottom: 10px
+}
+
+#result .success, #result-hello .success {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+input[type=text], input[type=email], textarea {
+    font-weight: 300;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid rgba(90, 97, 102, .2);
+    display: block;
+    width: 100%;
+    margin-bottom: 35px;
+    color: #000;
+    padding: 0 0 5px
+}
+
+input[type=text]:focus, input[type=email]:focus, textarea:focus {
+    outline: 0
+}
+
+.floatlabel-wrapper>label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #289be5
+}
+
+textarea {
+    height: 22px;
+    padding-bottom: 3px;
+    transition: .2s height ease;
+    line-height: 1.5em
+}
+
+#message {
+    height: 132px;
+}
+
+::-webkit-input-placeholder {
+    color: #7D7D7D
+}
+
+:-moz-placeholder {
+    color: #7D7D7D
+}
+
+::-moz-placeholder {
+    color: #7D7D7D
+}
+
+:-ms-input-placeholder {
+    color: #7D7D7D
+}
+
+.select-style {
+    padding: 5px 0 0;
+    margin: 0 0 45px;
+    border-bottom: 1px solid rgba(90, 97, 102, .2);
+    width: 320px;
+    overflow: hidden;
+    background-color: #fff;
+    float: left;
+    position: relative;
+    margin-right: 20px
+}
+
+.select-style:after {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 6px;
+    right: 10px;
+    top: 12px
+}
+
+.select-style.last {
+    margin-right: 0
+}
+
+.select-style select {
+    padding: 0 0 5px;
+    width: 320px;
+    border: none;
+    font-weight: 300;
+    font-size: 18px;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #000
+}
+
+.select-style select.default-value {
+    color: #7D7D7D
+}
+
+.select-style select:focus {
+    outline: 0
+}
+
+.respond-time {
+    color: #7D7D7D;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 52px
+}
+
+.respond-time>span {
+    color: #464646
+}
+
+.contact-content .button {
+    float: right
+}
+
+.contact-content .button:active, .contact-content .button:focus {
+    outline: 0
+}
+
+.stamp {
+    height: 180px;
+    width: 180px;
+    background: url(../img/content/contact/sent-stamp.png) no-repeat;
+    background-size: 180px 180px;
+    position: absolute;
+    right: 60px;
+    top: -150px;
+    opacity: 0;
+    -webkit-animation: stamp-in .3s 1s ease-in forwards;
+    -moz-animation: stamp-in .3s 1s ease-in forwards;
+    -ms-animation: stamp-in .3s 1s ease-in forwards;
+    animation: stamp-in .3s 1s ease-in forwards
+}
+
+@-webkit-keyframes stamp-in {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(2) rotate(0deg);
+        transform: scale(2) rotate(0deg)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale(0.8) rotate(15deg);
+        transform: scale(0.8) rotate(15deg)
+    }
+}
+
+@-moz-keyframes stamp-in {
+    from {
+        opacity: 0;
+        -moz-transform: scale(2) rotate(0deg);
+        transform: scale(2) rotate(0deg)
+    }
+
+    to {
+        opacity: 1;
+        -moz-transform: scale(0.8) rotate(15deg);
+        transform: scale(0.8) rotate(15deg)
+    }
+}
+
+@-ms-keyframes stamp-in {
+    from {
+        opacity: 0;
+        -ms-transform: scale(2) rotate(0deg);
+        transform: scale(2) rotate(0deg)
+    }
+
+    to {
+        opacity: 1;
+        -ms-transform: scale(0.8) rotate(15deg);
+        transform: scale(0.8) rotate(15deg)
+    }
+}
+
+keyframes stamp-in from {
+    opacity: 0;
+    -webkit-transform: scale(2) rotate(0deg);
+    -moz-transform: scale(2) rotate(0deg);
+    -ms-transform: scale(2) rotate(0deg);
+    transform: scale(2) rotate(0deg)
+}
+
+keyframes stamp-in to {
+    opacity: 1;
+    -webkit-transform: scale(0.8) rotate(15deg);
+    -moz-transform: scale(0.8) rotate(15deg);
+    -ms-transform: scale(0.8) rotate(15deg);
+    transform: scale(0.8) rotate(15deg)
+}
+
+@media only screen and (max-width:1000px) {
+    .column-left {
+        width: 60%;
+        margin: 0 7% 20px 0
+    }
+
+    .column-right {
+        width: 33%
+    }
+
+    .select-style {
+        width: 100%;
+        margin: 0 0 35px
+    }
+
+    .respond-time {
+        display: none
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .column-left {
+        float: none;
+        width: 100%
+    }
+
+    .column-left {
+        margin-bottom: 0
+    }
+
+    .column-right {
+        display: none
+    }
+
+    .contact-content .button {
+        width: 100%;
+        float: none
+    }
+
+    .contact-content .button:before {
+        display: none
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .select-style {
+        width: 100%
+    }
+
+    .select-style select {
+        width: 100%
+    }
+
+    .form-chooser ul {
+        text-align: center
+    }
+
+    h2 {
+        font-size: 28px;
+        line-height: 1.2em;
+        margin: 0 0 30px
+    }
+}
+
+
