@@ -31,6 +31,9 @@ app.get('/contact', function(req, res, next) {
 app.get('/presskits', function(req, res, next) {
   res.sendFile(__dirname + '/public/presskits.html');
 });
+app.get('/cloak', function(req, res, next) {
+  res.sendFile(__dirname + '/public/cloak.html');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
