@@ -47,13 +47,13 @@
     box-shadow: 0 0px 20px rgba(0, 0, 0, .4);
 }
 
-#appstoreimg {
+#appstoreimg, #googleplayimg {
     opacity: 0.8;
     transition: opacity 0.5s ease;
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
 }
 
-#appstoreimg:hover {
+#appstoreimg:hover, #googleplayimg:hover {
     opacity: 1.0;
 }
 
