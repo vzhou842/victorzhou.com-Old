@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var index = require('./routes/index');
 var sendemail = require('./routes/sendemail');
 
 var app = express();
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', index);
 app.use('/sendemail', sendemail);
 
 app.get('/projects', function(req, res, next) {
@@ -33,6 +33,9 @@ app.get('/presskits', function(req, res, next) {
 });
 app.get('/cloak', function(req, res, next) {
   res.sendFile(__dirname + '/public/cloak.html');
+});
+app.get('/privacy/encircle2', function(req, res, next) {
+  res.sendFile(__dirname + '/public/privacy-encircle2.html');
 });
 
 // catch 404 and forward to error handler
