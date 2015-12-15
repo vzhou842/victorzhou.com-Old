@@ -15,55 +15,88 @@
     <!-- JAVASCRIPT -->
     <script src="js/jquery-1.11.2.min.js"></script>
     <script>
+      var scrollPos;
+
+      function showIOS() {
+        scrollPos = document.body.scrollTop;
+        $(".page-chooser li").removeClass("active");
+        $("#iOS").addClass("active");
+        $("#Android-content").fadeOut(400);
+        $("#web-content").fadeOut(400);
+        $("#research-content").fadeOut(400);
+        setTimeout(function() {
+            $("#iOS-content").fadeIn(400);
+        }, 350);
+        window.location.hash = 'iOS';
+      }
+
+      function showAndroid() {
+        scrollPos = document.body.scrollTop;
+        $(".page-chooser li").removeClass("active");
+        $("#Android").addClass("active");
+        $("#iOS-content").fadeOut(400);
+        $("#web-content").fadeOut(400);
+        $("#research-content").fadeOut(400);
+        setTimeout(function() {
+            $("#Android-content").fadeIn(400);
+        }, 350);
+        window.location.hash = 'Android';
+      }
+
+      function showWeb() {
+        scrollPos = document.body.scrollTop;
+        $(".page-chooser li").removeClass("active");
+        $("#web").addClass("active");
+        $("#Android-content").fadeOut(400);
+        $("#iOS-content").fadeOut(400);
+        $("#research-content").fadeOut(400);
+        setTimeout(function() {
+          $("#web-content").fadeIn(400);
+        }, 350);
+        window.location.hash = 'Web';
+      }
+
+      function showResearch() {
+        scrollPos = document.body.scrollTop;
+        $(".page-chooser li").removeClass("active");
+        $("#research").addClass("active");
+        $("#Android-content").fadeOut(400);
+        $("#iOS-content").fadeOut(400);
+        $("#web-content").fadeOut(400);
+        setTimeout(function() {
+          $("#research-content").fadeIn(400);
+        }, 350);
+        window.location.hash = 'Research';
+      }
+
       $(document).ready(function()
       {
-        $("#iOS").click(function() 
-        {
-          $(".page-chooser li").removeClass("active");
-          $(this).addClass("active");
-          $("#Android-content").fadeOut(400);
-          $("#web-content").fadeOut(400);
-          $("#research-content").fadeOut(400);
-          setTimeout(function() {
-              $("#iOS-content").fadeIn(400)
-          }, 350);
-        });
+        $("#iOS").click(showIOS);
+        $("#Android").click(showAndroid);
+        $("#web").click(showWeb);
+        $("#research").click(showResearch);
 
-        $("#Android").click(function() 
-        {
-          $(".page-chooser li").removeClass("active");
-          $(this).addClass("active");
-          $("#iOS-content").fadeOut(400);
-          $("#web-content").fadeOut(400);
-          $("#research-content").fadeOut(400);
-          setTimeout(function() {
-              $("#Android-content").fadeIn(400)
-          }, 350);
-        });
+        //get anchor from URL, if any
+        var anchor = window.location.hash;
+        if (anchor == "#iOS") {
+          showIOS();
+        } else if (anchor == "#Android") {
+          showAndroid();
+        } else if (anchor == "#Web") {
+          showWeb();
+        } else if (anchor == "#Research") {
+          showResearch();
+        }
+      });
 
-        $("#web").click(function() 
-        {
-          $(".page-chooser li").removeClass("active");
-          $(this).addClass("active");
-          $("#Android-content").fadeOut(400);
-          $("#iOS-content").fadeOut(400);
-          $("#research-content").fadeOut(400);
-          setTimeout(function() {
-            $("#web-content").fadeIn(400)
-          }, 350);
-        });
-
-        $("#research").click(function() 
-        {
-          $(".page-chooser li").removeClass("active");
-          $(this).addClass("active");
-          $("#Android-content").fadeOut(400);
-          $("#iOS-content").fadeOut(400);
-          $("#web-content").fadeOut(400);
-          setTimeout(function() {
-            $("#research-content").fadeIn(400)
-          }, 350);
-        });
+      window.addEventListener('hashchange', function(e) {
+        //the location has has changed
+        if (scrollPos !== false) {
+          //move scroll position to stored position
+          document.body.scrollTop = scrollPos;
+          //set "scrollPos" to false so that this behavior won't affect irrelevant links
+          scrollPos = false;
+        }
       });
     </script>
 
