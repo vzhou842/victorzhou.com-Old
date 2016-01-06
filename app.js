@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/routes');
 var sendemail = require('./routes/sendemail');
+var encircle2 = require('./encircle2/routes');
 
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/sendemail', sendemail);
+app.use('/encircle2', encircle2);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
