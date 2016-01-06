@@ -12,6 +12,10 @@ db.once('open', function (callback) {
   console.log('db opened');
 });
 
+
+// Encircle2 Auth Middleware
+router.all('/*', [require('./auth/validateRequest')]);
+
 const DEFAULT_NUM_RETURN_MAPS = 50;
 
 /** GET /hotMaps
