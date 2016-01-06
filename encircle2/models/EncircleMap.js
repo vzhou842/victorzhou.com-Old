@@ -5,6 +5,6 @@ module.exports = mongoose.model('EncircleMap', {
     title : String,
     description : String,
     creator : { type : String, default : 'Unknown' },
-    plays : { type : Number, default : 0},
-    createdAt : Date,
+    plays : { type : Number, default : 0, index : true },
+    createdAt : { type : Date, index : true }
 });
