@@ -56,6 +56,9 @@ router.get('/newMaps', function(req, res, next) {
  * @param title The title of the map.
  * @param description The description of the map.
  * @param creator OPTIONAL. The creator of the map.
+ * @param invisibility OPTIONAL
+ * @param two_turtles OPTIONAL
+ * @param vortex OPTIONAL
  */
  router.post('/createMap', function(req, res, next) {
  	var map = req.body.map;
@@ -63,6 +66,13 @@ router.get('/newMaps', function(req, res, next) {
  	var description = req.body.description;
  	var creator = req.body.creator;
  	if (!creator) creator = 'Unknown';
+
+ 	var invisibility = req.body.invisibility;
+ 	var two_turtles = req.body.two_turtles;
+ 	var vortex = req.body.vortex;
+ 	if (!invisibility) invisibility = false;
+ 	if (!two_turtles) two_turtles = false;
+ 	if (!vortex) vortex = false;
 
  	if (!map) {
  		res.status(400).json({'error_message' : "'map' is a required param."});
@@ -81,6 +91,9 @@ router.get('/newMaps', function(req, res, next) {
  		description : description,
  		creator : creator,
  		createdAt : Date.now(),
+ 		invisibility : invisibility,
+ 		two_turtles : two_turtles,
+ 		vortex : vortex,
  	});
 
  	newMap.save(function(err, savedMap) {
