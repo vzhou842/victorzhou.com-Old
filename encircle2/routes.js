@@ -27,7 +27,7 @@ router.get('/hotMaps', function(req, res, next) {
 	if (req.params.num) limit = parseInt(req.params.num);
 	EncircleMap.find({}).sort({plays : 'descending'}).limit(limit).lean().exec(function(err, maps) {
 		if (!err) {
-			res.status(200).json(maps);
+			res.status(200).json({ maps : maps });
 		} else {
 			res.status(500).json({'error_message' : err.message});
 		}
@@ -43,7 +43,7 @@ router.get('/newMaps', function(req, res, next) {
 	if (req.params.num) limit = parseInt(req.params.num);
 	EncircleMap.find({}).sort({createdAt : 'descending'}).limit(limit).lean().exec(function(err, maps) {
 		if (!err) {
-			res.status(200).json(maps);
+			res.status(200).json({ maps : maps });
 		} else {
 			res.status(500).json({'error_message' : err.message});
 		}
