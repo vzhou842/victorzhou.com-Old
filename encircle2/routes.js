@@ -108,9 +108,12 @@ router.get('/newMaps', function(req, res, next) {
 /** POST /incrementPlayCount
  * Increments the play count for a certain map.
  * @param id The mapID of the map.
+ * @param amount OPTIONAL. The amount to increment by.
  */
 router.post('/incrementPlayCount', function(req, res, next) {
 	var id = req.body.id;
+	var amount = parseInt(req.body.amount);
+	if (!amount) amount = 1;
 
 	if (!id) {
  		res.status(400).json({'error_message' : "'id' is a required param."});
@@ -118,7 +121,7 @@ router.post('/incrementPlayCount', function(req, res, next) {
 	}
 
 	EncircleMap.findOne({'_id' : id}).exec(function(err, map) {
-		map.plays++;
+		map.plays = parseInt(map.plays) + amount;
 		map.save(function(err, savedMap) {
 			if (!err) {
 	 			res.status(200).json({'message' : 'Map successfully saved.'});
