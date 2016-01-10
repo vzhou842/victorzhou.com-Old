@@ -97,6 +97,7 @@ router.get('/maps', function(req, res, next) {
  * @param invisibility OPTIONAL
  * @param two_turtles OPTIONAL
  * @param vortex OPTIONAL
+ * @return The mapID of the created map.
  */
  router.post('/createMap', function(req, res, next) {
  	var map = req.body.map;
@@ -136,7 +137,7 @@ router.get('/maps', function(req, res, next) {
 
  	newMap.save(function(err, savedMap) {
  		if (!err) {
- 			res.status(200).json({'message' : 'Map successfully saved.'});
+ 			res.status(200).json({'id' : savedMap._id});
  		} else {
  			res.status(500).json({'error_message' : err.message});
  		}
