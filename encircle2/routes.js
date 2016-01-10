@@ -50,6 +50,44 @@ router.get('/newMaps', function(req, res, next) {
 	});
 });
 
+/** GET /maps
+ * Searches for maps based on the given parameters.
+ * @param mapID OPTIONAL. If given, takes precedence over all other parameters and returns the map with this ID.
+ * @param searchQuery OPTIONAL. A search string to match map titles with (ignoring case).
+ * @param num OPTIONAL. The max number of maps to return. Must be >= 1.
+ * @return map Used if mapID is provided as a parameter.
+ * @return maps Used if mapID is not provided as a parameter.
+ */
+router.get('/maps', function(req, res, next) {
+	var mapID = req.query.mapID;
+	var searchQuery = req.query.searchQuery;
+	var num = parseInt(req.query.num);
+	if (num < 1) num = 1;
+
+	if (!mapID && !searchQuery) {
+ 		res.status(400).json({'error_message' : "Missing parameters!"});
+ 		return;		
+	} else if (mapID) {
+		//search by ID
+		EncircleMap.findOne({'_id' : mapID}).exec(function(err, map) {
+			if (err) {
+ 				res.status(500).json({'error_message' : err.message});
+			} else {
+				res.status(200).json({'map' : map});
+			}
+		});
+	} else {
+		//search by title
+		EncircleMap.find({'title' : new RegExp(searchQuery, 'i')}).limit(num).exec(function(err, maps) {
+			if (err) {
+ 				res.status(500).json({'error_message' : err.message});
+			} else {
+				res.status(200).json({'maps' : maps});
+			}
+		});
+	}
+});
+
 /** POST /createMap
  * Creates a custom map.
  * @param map The map string.
