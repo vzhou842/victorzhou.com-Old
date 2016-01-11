@@ -4,13 +4,33 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cluster = require('cluster');
+
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
+
+var WORKERS = process.env.WEB_CONCURRENCY || 1;
+if (cluster.isMaster) {
+    for (var i = 0; i < WORKERS; i++) {
+        cluster.fork();
+    }
+
+    cluster.on('online', function(worker) {
+        console.log('Worker ' + worker.process.pid + ' is online');
+    });
+
+    cluster.on('exit', function(worker, code, signal) {
+        console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
+        console.log('Starting a new worker');
+        cluster.fork();
+    });
+
+    return;
+}
 
 var routes = require('./routes/routes');
 var sendemail = require('./routes/sendemail');
 var encircle2 = require('./encircle2/routes');
-
-var path = require('path');
-global.appRoot = path.resolve(__dirname);
 
 var app = express();
 
@@ -57,5 +77,9 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+//start listening
+var port = process.env.PORT || '3000';
+app.listen(port);
 
 module.exports = app;
