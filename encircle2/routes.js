@@ -160,14 +160,18 @@ router.post('/incrementPlayCount', function(req, res, next) {
 	}
 
 	EncircleMap.findOne({'_id' : id}).exec(function(err, map) {
-		map.plays = parseInt(map.plays) + amount;
-		map.save(function(err, savedMap) {
-			if (!err) {
-	 			res.status(200).json({'message' : 'Map successfully saved.'});
-	 		} else {
-	 			res.status(500).json({'error_message' : err.message});
-	 		}
-		});
+		if (map) {
+			map.plays = parseInt(map.plays) + amount;
+			map.save(function(err, savedMap) {
+				if (!err) {
+		 			res.status(200).json({'message' : 'Map successfully saved.'});
+		 		} else {
+		 			res.status(500).json({'error_message' : err.message});
+		 		}
+			});
+		} else {
+			res.status(200).json({'message' : 'This map does not exist.'});
+		}
 	});
 })
 
