@@ -183,32 +183,43 @@ router.post('/incrementPlayCount', function(req, res, next) {
 /** POST /addRating
  * Adds a rating for a certain map.
  * @param id The mapID of the map to be rated.
- * @param rating The rating. Must be between 1 and 5, inclusive.
+ * @param rating OPTIONAL. The rating. Must be between 1 and 5, inclusive.
+ * @param ratings OPTIONAL. An array of ratings. Use this to post multiple ratings at once.
  */
 router.post('/addRating', function(req, res, next) {
 	var rating = parseInt(req.body.rating);
+	var ratings = req.body.ratings;
 	var id = req.body.id;
-
+	
 	if (!id) {
  		res.status(400).json({'error_message' : "'id' is a required param."});
  		return;		
-	} else if (!rating) {
- 		res.status(400).json({'error_message' : "'rating' is a required param."});
+	} else if (!rating && !ratings) {
+ 		res.status(400).json({'error_message' : "You must include either 'rating' or 'ratings' as a parameter."});
  		return;
-	} else if (rating < 1 || rating > 5) {
+	} else if ((rating < 1 || rating > 5) && !ratings) {
  		res.status(400).json({'error_message' : rating + " is not a valid value for 'rating'."});
  		return;
+	} else if (!rating && ratings.constructor !== Array) {
+		res.status(400).json({'error_message' : "'ratings' must be an array."});
+		return;
 	}
 
 	EncircleMap.findOne({'_id' : id}).exec(function(err, map) {
 		if (map) {
-			if (map.num_ratings == 0) {
-				map.rating = rating;
-				map.num_ratings = 1;
-			} else {
-				map.rating = ((map.rating * map.num_ratings) + rating) / (map.num_ratings + 1);
-				map.num_ratings++;
+			if (!ratings) {
+				//1 rating
+				ratings = [rating];
 			}
+			ratings.forEach(function(r) {
+				if (map.num_ratings == 0) {
+					map.rating = r;
+					map.num_ratings = 1;
+				} else {
+					map.rating = ((map.rating * map.num_ratings) + r) / (map.num_ratings + 1);
+					map.num_ratings++;
+				}
+			});
 			map.save(function(err, savedMap) {
 				if (!err) {
 		 			res.status(200).json({'message' : 'Map successfully saved.'});
@@ -225,34 +236,44 @@ router.post('/addRating', function(req, res, next) {
 /** POST /addCompletion
  * Adds a completion (a user completed the map) for a certain map.
  * @param id The mapID of the map to add a completion for.
- * @param moves The number of moves it took.
+ * @param moves OPTIONAL. The number of moves it took.
+ * @param moves_array OPTIONAL. An array of moves. Use this to post multiple completions at once.
  */
 router.post('/addCompletion', function(req, res, next) {
 	var moves = parseInt(req.body.moves);
+	var movesArray = req.body.moves_array;
 	var id = req.body.id;
 
 	if (!id) {
  		res.status(400).json({'error_message' : "'id' is a required param."});
  		return;		
-	} else if (!moves) {
- 		res.status(400).json({'error_message' : "'moves' is a required param."});
+	} else if (!moves && !movesArray) {
+ 		res.status(400).json({'error_message' : "You must include either 'moves' or 'moves_array' as a parameter."});
  		return;
-	} else if (moves < 1) {
+	} else if (moves < 1 && !movesArray) {
  		res.status(400).json({'error_message' : moves + " is not a valid value for 'moves'."});
  		return;
+	} else if (!moves && !(movesArray instanceof Array)) {
+		res.status(400).json({'error_message' : "'moves_array' must be an array."});
+		return;		
 	}
 
 	EncircleMap.findOne({'_id' : id}).exec(function(err, map) {
 		if (map) {
-			if (map.num_completions == 0) {
-				map.lowest_moves = moves;
-				map.average_moves = moves;
-				map.num_completions = 1;
-			} else {
-				map.lowest_moves = Math.min(map.lowest_moves, moves);
-				map.average_moves = ((map.average_moves * map.num_completions) + moves) / (map.num_completions + 1);
-				map.num_completions++;
+			if (!movesArray) {
+				movesArray = [moves];
 			}
+			movesArray.forEach(function(m) {
+				if (map.num_completions == 0) {
+					map.lowest_moves = m;
+					map.average_moves = m;
+					map.num_completions = 1;
+				} else {
+					map.lowest_moves = Math.min(map.lowest_moves, m);
+					map.average_moves = ((map.average_moves * map.num_completions) + m) / (map.num_completions + 1);
+					map.num_completions++;
+				}
+			});
 			map.save(function(err, savedMap) {
 				if (!err) {
 		 			res.status(200).json({'message' : 'Map successfully saved.'});
