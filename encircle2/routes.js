@@ -184,13 +184,13 @@ router.post('/incrementPlayCount', function(req, res, next) {
  * Adds a rating for a certain map.
  * @param id The mapID of the map to be rated.
  * @param rating OPTIONAL. The rating. Must be between 1 and 5, inclusive.
- * @param ratings OPTIONAL. An array of ratings. Use this to post multiple ratings at once.
+ * @param ratings OPTIONAL. An array of comma separated ratings. Use this to post multiple ratings at once.
  */
 router.post('/addRating', function(req, res, next) {
 	var rating = parseInt(req.body.rating);
-	var ratings = req.body.ratings;
 	var id = req.body.id;
-	
+	var ratings = (req.body.ratings) ? (req.body.ratings).split(',') : null;
+
 	if (!id) {
  		res.status(400).json({'error_message' : "'id' is a required param."});
  		return;		
@@ -200,9 +200,6 @@ router.post('/addRating', function(req, res, next) {
 	} else if ((rating < 1 || rating > 5) && !ratings) {
  		res.status(400).json({'error_message' : rating + " is not a valid value for 'rating'."});
  		return;
-	} else if (!rating && ratings.constructor !== Array) {
-		res.status(400).json({'error_message' : "'ratings' must be an array."});
-		return;
 	}
 
 	EncircleMap.findOne({'_id' : id}).exec(function(err, map) {
@@ -212,6 +209,10 @@ router.post('/addRating', function(req, res, next) {
 				ratings = [rating];
 			}
 			ratings.forEach(function(r) {
+				r = parseInt(r);
+				if (!r) {
+			 		return;					
+				}
 				if (map.num_ratings == 0) {
 					map.rating = r;
 					map.num_ratings = 1;
@@ -237,11 +238,11 @@ router.post('/addRating', function(req, res, next) {
  * Adds a completion (a user completed the map) for a certain map.
  * @param id The mapID of the map to add a completion for.
  * @param moves OPTIONAL. The number of moves it took.
- * @param moves_array OPTIONAL. An array of moves. Use this to post multiple completions at once.
+ * @param moves_array OPTIONAL. An array of comma separated moves. Use this to post multiple completions at once.
  */
 router.post('/addCompletion', function(req, res, next) {
 	var moves = parseInt(req.body.moves);
-	var movesArray = req.body.moves_array;
+	var movesArray = (req.body.moves_array) ? (req.body.moves_array).split(',') : null;
 	var id = req.body.id;
 
 	if (!id) {
@@ -253,9 +254,6 @@ router.post('/addCompletion', function(req, res, next) {
 	} else if (moves < 1 && !movesArray) {
  		res.status(400).json({'error_message' : moves + " is not a valid value for 'moves'."});
  		return;
-	} else if (!moves && !(movesArray instanceof Array)) {
-		res.status(400).json({'error_message' : "'moves_array' must be an array."});
-		return;		
 	}
 
 	EncircleMap.findOne({'_id' : id}).exec(function(err, map) {
@@ -264,6 +262,10 @@ router.post('/addCompletion', function(req, res, next) {
 				movesArray = [moves];
 			}
 			movesArray.forEach(function(m) {
+				m = parseInt(m);
+				if (!m) {
+			 		return;					
+				}
 				if (map.num_completions == 0) {
 					map.lowest_moves = m;
 					map.average_moves = m;
