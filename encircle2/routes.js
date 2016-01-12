@@ -62,7 +62,9 @@ router.get('/maps', function(req, res, next) {
 	var mapID = req.query.mapID;
 	var searchQuery = req.query.searchQuery;
 	var num = parseInt(req.query.num);
+	if (!num) num = 20;
 	if (num < 1) num = 1;
+	if (num > 50) num = 50;
 
 	if (!mapID && !searchQuery) {
  		res.status(400).json({'error_message' : "Missing parameters!"});
