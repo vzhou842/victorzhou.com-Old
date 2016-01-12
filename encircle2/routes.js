@@ -178,6 +178,92 @@ router.post('/incrementPlayCount', function(req, res, next) {
 			res.status(200).json({'message' : 'This map does not exist.'});
 		}
 	});
-})
+});
+
+/** POST /addRating
+ * Adds a rating for a certain map.
+ * @param id The mapID of the map to be rated.
+ * @param rating The rating. Must be between 1 and 5, inclusive.
+ */
+router.post('/addRating', function(req, res, next) {
+	var rating = parseInt(req.body.rating);
+	var id = req.body.id;
+
+	if (!id) {
+ 		res.status(400).json({'error_message' : "'id' is a required param."});
+ 		return;		
+	} else if (!rating) {
+ 		res.status(400).json({'error_message' : "'rating' is a required param."});
+ 		return;
+	} else if (rating < 1 || rating > 5) {
+ 		res.status(400).json({'error_message' : rating + " is not a valid value for 'rating'."});
+ 		return;
+	}
+
+	EncircleMap.findOne({'_id' : id}).exec(function(err, map) {
+		if (map) {
+			if (map.num_ratings == 0) {
+				map.rating = rating;
+				map.num_ratings = 1;
+			} else {
+				map.rating = ((map.rating * map.num_ratings) + rating) / (map.num_ratings + 1);
+				map.num_ratings++;
+			}
+			map.save(function(err, savedMap) {
+				if (!err) {
+		 			res.status(200).json({'message' : 'Map successfully saved.'});
+		 		} else {
+		 			res.status(500).json({'error_message' : err.message});
+		 		}
+			});
+		} else {
+			res.status(200).json({'message' : 'This map does not exist.'});			
+		}
+	});
+});
+
+/** POST /addCompletion
+ * Adds a completion (a user completed the map) for a certain map.
+ * @param id The mapID of the map to add a completion for.
+ * @param moves The number of moves it took.
+ */
+router.post('/addCompletion', function(req, res, next) {
+	var moves = parseInt(req.body.moves);
+	var id = req.body.id;
+
+	if (!id) {
+ 		res.status(400).json({'error_message' : "'id' is a required param."});
+ 		return;		
+	} else if (!moves) {
+ 		res.status(400).json({'error_message' : "'moves' is a required param."});
+ 		return;
+	} else if (moves < 1) {
+ 		res.status(400).json({'error_message' : moves + " is not a valid value for 'moves'."});
+ 		return;
+	}
+
+	EncircleMap.findOne({'_id' : id}).exec(function(err, map) {
+		if (map) {
+			if (map.num_completions == 0) {
+				map.lowest_moves = moves;
+				map.average_moves = moves;
+				map.num_completions = 1;
+			} else {
+				map.lowest_moves = Math.min(map.lowest_moves, moves);
+				map.average_moves = ((map.average_moves * map.num_completions) + moves) / (map.num_completions + 1);
+				map.num_completions++;
+			}
+			map.save(function(err, savedMap) {
+				if (!err) {
+		 			res.status(200).json({'message' : 'Map successfully saved.'});
+		 		} else {
+		 			res.status(500).json({'error_message' : err.message});
+		 		}
+			});
+		} else {
+			res.status(200).json({'message' : 'This map does not exist.'});			
+		}
+	});
+});
 
 module.exports = router;
