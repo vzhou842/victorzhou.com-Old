@@ -53,7 +53,7 @@ router.get('/newMaps', function(req, res, next) {
 /** GET /maps
  * Searches for maps based on the given parameters.
  * @param mapID OPTIONAL. If given, takes precedence over all other parameters and returns the map with this ID.
- * @param searchQuery OPTIONAL. A search string to match map titles with (ignoring case).
+ * @param searchQuery OPTIONAL. A search string to match map titles and creators with (ignoring case).
  * @param num OPTIONAL. The max number of maps to return. Must be >= 1.
  * @return map Used if mapID is provided as a parameter.
  * @return maps Used if mapID is not provided as a parameter.
@@ -80,7 +80,10 @@ router.get('/maps', function(req, res, next) {
 		});
 	} else {
 		//search by title
-		EncircleMap.find({'title' : new RegExp(searchQuery, 'i')}).limit(num).exec(function(err, maps) {
+		EncircleMap.find({$or : [
+			{'title' : new RegExp(searchQuery, 'i')},
+			{'creator' : new RegExp(searchQuery, 'i')},
+			]}).limit(num).exec(function(err, maps) {
 			if (err) {
  				res.status(500).json({'error_message' : err.message});
 			} else {
