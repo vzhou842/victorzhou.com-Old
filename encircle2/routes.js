@@ -19,20 +19,42 @@ router.all('/*', [require('./auth/validateRequest')]);
 const DEFAULT_NUM_RETURN_MAPS = 50;
 
 /** GET /hotMaps
- * Returns an array of the most popular maps.
+ * Returns an array of the most popular maps, based on play count and rating.
  * @param num OPTIONAL. The number of maps to return (at most).
  */
 router.get('/hotMaps', function(req, res, next) {
 	var limit = DEFAULT_NUM_RETURN_MAPS;
 	if (req.params.num) limit = parseInt(req.params.num);
-	EncircleMap.find({}).sort({plays : 'descending'}).limit(limit).lean().exec(function(err, maps) {
+	EncircleMap.find({}).sort({plays : 'descending', rating : 'descending'}).limit(limit*2).lean().exec(function(err, maps) {
 		if (!err) {
+			//sort with a custom function
+			maps.sort(hotComparator);
+
+			var retMaps = maps;
+			if (maps.length > limit) retMaps = maps.slice(0, limit);
 			res.status(200).json({ maps : maps });
 		} else {
 			res.status(500).json({'error_message' : err.message});
 		}
 	});
 });
+
+function hotComparator(a, b) {
+	var ma = (a.num_ratings >= 5) ? hotMultiplier(a.rating) : 1;
+	var mb = (b.num_ratings >= 5) ? hotMultiplier(b.rating) : 1;
+	var playA = a.plays * ma;
+	var playB = b.plays * mb;
+	if (playA > playB) return -1;
+	else if (playB > playA) return 1;
+	return 0;
+}
+
+//ratings act as a multiplier on play count with range [0.5, 2.0] scaling quadratically
+// m(r) = 0.051*r^2 + 0.015*r + 0.434
+// m(3.19) = 1
+function hotMultiplier(r) {
+	return .051*r*r + .015*r + .434;
+}
 
 /** GET /newMaps
  * Returns an array of the newest maps.
