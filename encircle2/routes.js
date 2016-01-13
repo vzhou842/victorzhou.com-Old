@@ -18,6 +18,13 @@ router.all('/*', [require('./auth/validateRequest')]);
 
 const DEFAULT_NUM_RETURN_MAPS = 50;
 
+/** GET /minSupportedVersion
+ * Returns the minimum supported version of Encircle 2.
+ */
+router.get('/minSupportedVersion', function(req, res, next) {
+	res.status(200).json({'minVersion' : 3.0});
+});
+
 /** GET /hotMaps
  * Returns an array of the most popular maps, based on play count and rating.
  * @param num OPTIONAL. The number of maps to return (at most).
