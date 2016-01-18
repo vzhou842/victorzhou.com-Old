@@ -38,16 +38,6 @@
     height: 660px;
 }
 
-#vz_mailinglistHeader
-{
-    background: url(../images/background_mailinglist.jpg) no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 750px;
-}
-
 .container h1 {
 	font-size: 32px;
 }
