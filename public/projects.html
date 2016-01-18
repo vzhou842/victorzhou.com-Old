@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" ng-app="victorzhouProjects">
   <head>
     <!-- CORE CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -13,6 +13,8 @@
     <link rel="icon" href="http://www.victorzhou.com/favicon.ico" type="image/icon">
     
     <!-- JAVASCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
     <script src="js/jquery-1.11.2.min.js"></script>
     <script>
       var scrollPos;
@@ -174,201 +176,33 @@
       </ul>
     </div>
 
-    <div id="iOS-content">
+    <div id="iOS-content" ng-controller="iOSProjectsController">
 
-      <article class="portfolio-item white" id="ontheway">
+      <article class="portfolio-item white" ng-repeat="project in projects" ng-class-even="'even'">
         <div class="wrap row">
+
           <div class="col-md-7">
             <div class="image-wrapper-blank">
-              <center> <img src="images/screenshot_ontheway.png" alt="Ontheway" width="567" height="500"> </center>
+              <center> 
+                <img ng-src="{{project.imageURL}}" alt="{{project.name}}" width="{{project.landscape ? 441 : 567}}" height="500"> 
+              </center>
             </div>
           </div>
 
           <div class="col-md-5">
             <div class="description">
               <div>
-                <h2>Ontheway</h2>
-                <p><span style="color:black">A peer-to-peer delivery network.</span><br><br>Request anything delivered anywhere or make money doing deliveries on the side. Find out more at <a href="http://www.ontheway-app.com" target="_blank">ontheway-app.com</a></p>
+                <h2>{{project.name}}</h2>
+                <p>
+                  <span style="color:black">{{project.subtitle}}</span>
+                  <br><br>
+                  <span ng-bind-html="project.descriptionHTML | unsafe"></span>
+                </p>
               </div>
-              <a href="bit.ly/ontheway-iOS" target="_blank"><img src="images/appstore.svg" id="appstoreimg"></a>
+              <a ng-href="{{project.link}}" target="_blank"><img src="images/appstore.svg" id="appstoreimg"></a>
             </div>
           </div>
 
-        </div>
-      </article>
-
-      <article class="portfolio-item white odd" id="cloak">
-        <div class="wrap row">
-          <div class="col-md-7">
-            <div class="image-wrapper-blank wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".1s">
-              <center> <img src="images/screenshot_cloak.png" alt="Cloak" width="567" height="500"> </center>
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="description">
-              <div class="wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".1s">
-                <h2>Cloak</h2>
-                <p><span style="color:black">Securely and seamlessly hiding personal information in plain sight.</span><br><br>First Place Winner of Best Privacy and Security Hacks at HackPrinceton Fall 2015.<br><br>For more information, visit <a href="/cloak" target="_blank">victorzhou.com/cloak</a>.</p>
-              </div>
-              <a href="https://itunes.apple.com/us/app/cloak-protect-your-information/id1070902484?mt=8&ign-mpt=uo%3D4" target="_blank" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay="0.5s"><img src="images/appstore.svg" id="appstoreimg"></a>
-            </div>
-          </div>
-
-        </div>
-      </article>
-
-      <article class="portfolio-item white odd" id="floodingdots">
-        <div class="wrap row">
-          <div class="col-md-7">
-            <div class="image-wrapper-blank wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".1s">
-              <center> <img src="images/screenshot_floodingdots.png" alt="Flooding Dots" width="567" height="500"> </center>
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="description">
-              <div class="wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".1s">
-                <h2>Flooding Dots</h2>
-                <p><span style="color:black">The sequel to Falling Dots.</span><br><br>Drag the dots to their appropriate places to score points. Can you survive the flood?<br><br>See the promo video <a href="https://www.youtube.com/watch?v=WBUVF3bVwuE" target="_blank">here</a>.</p>
-              </div>
-              <a href="https://itunes.apple.com/us/app/flooding-dots/id956044693?mt=8&uo=4" target="_blank" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay="0.5s"><img src="images/appstore.svg" id="appstoreimg"></a>
-            </div>
-          </div>
-
-        </div>
-      </article>
-
-      <article class="portfolio-item white" id="freestylephile">
-        <div class="wrap row">
-          <div class="col-md-7">
-            <div class="image-wrapper-blank wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".1s">
-              <center> <img src="images/screenshot_freestylephile.png" alt="Freestylephile" width="567" height="500"> </center>
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="description">
-              <div class="wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".1s">
-                <h2>Freestylephile</h2>
-                <p><span style="color:black">Anonymously share your freestyle raps/rhymes/bad poetry with people around the world.</span><br><br>Download, pick a username, and immediately start freestyling.<br>Or if you're not into that, start scrolling through feeds of the newest and hottest freestyles worldwide.</p>
-              </div>
-              <a href="https://itunes.apple.com/us/app/freestylephile/id931357801?mt=8&uo=4" target="_blank" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay="0.5s"><img src="images/appstore.svg" id="appstoreimg"></a>
-            </div>
-          </div>
-
-        </div>
-      </article>
-
-      <article class="portfolio-item white odd" id="encircle2">
-        <div class="wrap row">
-          <div class="col-md-7">
-            <div class="image-wrapper-blank wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".1s">
-              <center> <img src="images/screenshot_encircle2.png" alt="Encircle the Turtle 2" width="441" height="500"> </center>
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="description">
-              <div class="wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".1s">
-                <h2>Encircle the Turtle 2</h2>
-                <p><span style="color:black">Test your strategic prowess against a turtle. Yes, you read that right.</span><br><br>Play through 60 challenging levels with various gameplay features like invisible turtles, twin turtles, and more. Can you outwit a turtle?<br><br>
-
-                "A quality puzzle game" <span class="review-source">- TapScape, 8.3/10</span><br>"Super addicting ... it becomes an obsession" <span class="review-source">- AppsHappens</span><br>"You need to get your hands on this" <span class="review-source">- Crazy Mike's Apps</span></p>
-              </div>
-
-              <a href="https://itunes.apple.com/us/app/encircle-the-turtle-2/id824239280?mt=8&uo=4" target="_blank" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay="0.5s"><img src="images/appstore.svg" id="appstoreimg"></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="portfolio-item white" id="mobydick">
-        <div class="wrap row">
-          <div class="col-md-7">
-            <div class="image-wrapper-blank wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".1s">
-              <center> <img src="images/screenshot_mobydick.png" alt="Moby Dick" width="441" height="500"> </center>
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="description">
-              <div class="wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".1s">
-                <h2>Moby Dick</h2>
-                <p><span style="color:black">Play as the White Whale from Herman Melville's masterpiece Moby Dick.</span><br><br>Smash ships, eat fish, explore the seas, upgrade, and repeat.</p>
-              </div>
-
-              <a href="https://itunes.apple.com/us/app/moby-dick-the-game/id803997829?mt=8&uo=4" target="_blank" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay="0.5s"><img src="images/appstore.svg" id="appstoreimg"></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="portfolio-item white odd" id="fallingdots">
-        <div class="wrap row">
-          <div class="col-md-7">
-            <div class="image-wrapper-blank wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".1s">
-              <center> <img src="images/screenshot_fallingdots.png" alt="Falling Dots" width="567" height="500"> </center>
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="description">
-              <div class="wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".1s">
-                <h2>Falling Dots</h2>
-                <p><span style="color:black">Don't Tap Red Dots. Tap all the other dots.</span><br><br>It's not as easy as it seems.<br>Featuring Classic Mode, Arcade mode, and Multiplayer Mode. Race against yourself or other online players to victory.<br><br>
-
-                "Incredibly addictive ... immersive gaming experience" <span class="review-source">- AppPicker.com</span><br>"Extremely intuitive and user friendly, but even more addicting" <span class="review-source">- satisfied user, 5/5</span><br>"Addictive, amazing ... a real gem" <span class="review-source">- satisfied user, 5/5</span></p>
-              </div>
-
-              <a href="https://itunes.apple.com/us/app/falling-dots/id651531217?mt=8&uo=4" target="_blank" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay="0.5s"><img src="images/appstore.svg" id="appstoreimg"></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="portfolio-item white" id="encircle">
-        <div class="wrap row">
-          <div class="col-md-7">
-            <div class="image-wrapper-blank wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".1s">
-              <center> <img src="images/screenshot_encircle.png" alt="Encircle the Turtle" width="441" height="500"> </center>
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="description">
-              <div class="wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".1s">
-                <h2>Encircle the Turtle</h2>
-                <p><span style="color:black">The Original Encircle the Turtle.</span><br><br>It's the one that came before Encircle the Turtle 2. An Oldie but a Goodie.<br>Features 1 player, 2 player, and Campaign modes.<br><br>
-
-                "One of the best free iPhone games" <span class="review-source">- iPhonage.com</span><br>"So addictive that it's taking me everything to keep away from the game and write about it" <span class="review-source">- iGeeksBlog.com </span><br>"One of the best iPhone games of all time, without a doubt" <span class="review-source">- satisfied user, 5/5</span></p>
-              </div>
-
-              <a href="https://itunes.apple.com/us/app/encircle-the-turtle/id634465881?mt=8&uo=4" target="_blank" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay="0.5s"><img src="images/appstore.svg" id="appstoreimg"></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="portfolio-item white odd" id="flappyfalcon">
-        <div class="wrap row">
-          <div class="col-md-7">
-            <div class="image-wrapper-blank wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".1s">
-              <center> <img src="images/screenshot_flappyfalcon.png" alt="Flappy Falcon" width="567" height="500"> </center>
-            </div>
-          </div>
-
-          <div class="col-md-5">
-            <div class="description">
-              <div class="wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".1s">
-                <h2>Flappy Falcon</h2>
-                <p><span style="color:black">My obligatory Flappy Bird ripoff.</span><br><br>Remember back when everyone was making clones of Flappy Bird? I jumped on that bandwagon too.<br><br>
-
-                "Even more frustrating than the original" <span class="review-source">- satisfied(?) user, 5/5</span></p>
-              </div>
-              <a href="https://itunes.apple.com/us/app/flappy-falcon/id821391902?mt=8&uo=4" target="_blank" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay="0.5s"><img src="images/appstore.svg" id="appstoreimg"></a>
-            </div>
-          </div>
         </div>
       </article>
 
@@ -383,7 +217,7 @@
       </a>
       <br></br>
       <br></br>
-      <br></br>
+      <br></br-->
     </div> <!-- END OF iOS CONTENT -->
 
     <div id="Android-content">
