@@ -72,3 +72,13 @@ controllers.controller('iOSProjectsController', ['$scope', function($scope) {
 		landscape: false,
 	}];
 }]);
+
+controllers.controller('AndroidProjectsController', ['$scope', function($scope) {
+	$scope.projects = [{
+		name: 'Ontheway',
+		subtitle: 'A peer-to-peer delivery network.',
+		descriptionHTML: 'Request anything delivered anywhere or make money doing deliveries on the side. Find out more at <a href="http://www.ontheway-app.com" target="_blank">ontheway-app.com</a>',
+		link: "https://play.google.com/store/apps/details?id=innovations.enroute.jjiang.ontheway",
+		imageURL: '/images/screenshot_ontheway-Android.png',
+	}];
+}]);

@@ -23,6 +23,7 @@ victorzhouApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider
 	}).state('projects.Android', {
 		url: '/Android',
 		templateUrl: 'partials/projects.Android.html',
+		controller: 'AndroidProjectsController',
 	}).state('projects.web', {
 		url: '/web',
 		templateUrl: 'partials/projects.web.html',
