@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cluster = require('cluster');
 var compress = require('compression');
+var minify = require('express-minify');
 
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
@@ -38,6 +39,7 @@ var app = express();
 app.set('view engine', 'jade');
 
 app.use(compress());
+app.use(minify());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
