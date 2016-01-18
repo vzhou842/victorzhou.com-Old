@@ -82,3 +82,25 @@ controllers.controller('AndroidProjectsController', ['$scope', function($scope) 
 		imageURL: '/images/screenshot_ontheway-Android.png',
 	}];
 }]);
+
+controllers.controller('WebProjectsController', ['$scope', function($scope) {
+	$scope.projects = [{
+		name: 'Ontheway',
+		subtitle: 'A peer-to-peer delivery network.',
+		descriptionHTML: 'A Node.js web server and application server for Ontheway, a peer-to-peer delivery network.<br>Visit the website for more information.',
+		link: "http://www.ontheway-app.com",
+		imageURL: '/images/screenshot_otw_web.png',
+	}, {
+		name: 'victorzhou.com',
+		subtitle: 'You\'re literally on this website.',
+		descriptionHTML: '100% developed by yours truly. Built using the MEAN (MongoDB, Express.js, Angular.js, Node.js) stack. Consists of a web server for the site and an application server for <a href="https://itunes.apple.com/us/app/encircle-the-turtle-2/id824239280?mt=8&uo=4" target="_blank">Encircle the Turtle 2</a>.<br>View the source code on my <a href="http://www.github.com/vzhou842" target="_blank">Github</a>.',
+		link: "http://www.victorzhou.com",
+		imageURL: '/images/screenshot_victorzhou.png',
+	}, {
+		name: 'Princeton Social Innovation',
+		subtitle: 'Princeton University\'s Social Innovation club.',
+		descriptionHTML: 'I helped develop the this website as a Web Development Officer in Princeton Social Innovation.',
+		link: 'http://www.princetonsi.com',
+		imageURL: 'images/screenshot_psi.png',
+	}];
+}]);

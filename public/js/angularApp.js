@@ -27,6 +27,7 @@ victorzhouApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider
 	}).state('projects.web', {
 		url: '/web',
 		templateUrl: 'partials/projects.web.html',
+		controller: 'WebProjectsController',
 	}).state('projects.research', {
 		url: '/research',
 		templateUrl: 'partials/projects.research.html',
