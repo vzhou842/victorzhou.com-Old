@@ -44,6 +44,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'), { maxage: '4h' }));
+app.use('/bower_components',  express.static(__dirname + '/bower_components', { maxage: '7d' }));
 
 app.use('/', routes);
 app.use('/sendemail', sendemail);
