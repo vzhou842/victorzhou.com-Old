@@ -26,6 +26,7 @@
     "animate.css": "~3.5.1",
     "angular-ui-router": "~0.2.15",
     "jquery": "~2.2.0",
-    "wow": "~1.1.2"
+    "wow": "~1.1.2",
+    "angular-ui-router-anim-in-out": "~1.0.2"
   }
 }

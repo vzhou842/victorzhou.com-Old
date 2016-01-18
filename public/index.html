@@ -1,14 +1,15 @@
 <html lang="en" ng-app="victorzhou">
   <head>
     <!-- CORE CSS -->
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/profile.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/custom.css">
-    <link rel="stylesheet" href="/css/projects.css">
-    <link rel="stylesheet" href="/css/contact.css">
-    <link rel="stylesheet" href="/css/presskits.css">
-    <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/projects.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact.css">
+    <link rel="stylesheet" type="text/css" href="/css/presskits.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css">
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/icon"> 
@@ -17,7 +18,9 @@
     <!-- JAVASCRIPT -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/angular-ui-router-anim-in-out/anim-in-out.js"></script>
     <script src="/bower_components/wow/dist/wow.min.js"></script>
     <script> new WOW().init(); </script>
     <script src="/js/controllers.js"></script>
@@ -53,7 +56,9 @@
   
   <!--   BODY   -->
   <body>
-    <div ui-view></div>
+    <div class="ui-view-container">
+      <div ui-view class="anim-in-out anim-fade" data-anim-sync="true"></div>
+    </div>
   </body>
     
   <!--             FOOTER            -->

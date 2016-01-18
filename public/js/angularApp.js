@@ -1,4 +1,4 @@
-var victorzhouApp = angular.module('victorzhou', ['ui.router', 'victorzhouControllers']);
+var victorzhouApp = angular.module('victorzhou', ['ui.router', 'victorzhouControllers', 'ngAnimate', 'anim-in-out']);
 
 victorzhouApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 	$urlRouterProvider.otherwise('/');
