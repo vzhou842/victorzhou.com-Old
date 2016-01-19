@@ -1,0 +1,32 @@
+{
+  "name": "victorzhou",
+  "description": "Victor Zhou's personal website.",
+  "main": "app.js",
+  "authors": [
+    "Victor Zhou <vzhou842@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "victor",
+    "zhou"
+  ],
+  "homepage": "http://www.victorzhou.com",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "bootstrap": "~3.3.6",
+    "animate.css": "~3.5.1",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.2.0",
+    "wow": "~1.1.2",
+    "angular-ui-router-anim-in-out": "~1.0.2"
+  }
+}

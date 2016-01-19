@@ -1,0 +1,98 @@
+<script>
+  $(document).ready(function(){
+    
+    $('#submit').click(function(){
+
+      $("#contact_form").fadeOut(400);
+      $("#contact_form_title").fadeOut(400);
+      setTimeout(function() {
+          $("#contact_form_submitted").fadeIn(400)
+      }, 350);
+
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var message = $("#message").val();
+
+      var dataString = 'name=' + name + '&email=' + email + '&message=' + message;
+
+      $.post("sendemail", dataString, function(result) {
+
+      });
+
+      return false;
+     
+    });
+   
+  });
+
+  //Select the Contact navbar item
+  $('.navBar a').removeClass('active');
+  $('#contact_header').addClass('active');
+
+</script>
+
+<div style="background:black;">
+  <div class="header profile light" id="vz_contactHeader">
+    <div class="wrap">
+      <div id="profile-intro">
+        <h1>Connect With Me</h1>
+        <p>Have something to say? Contact me anytime and share your thoughts.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</head>
+
+<div class="page-chooser">
+  <ul class="wrap">
+    <li id="Contact" class="active wow fadeIn" data-wow-duration="0.75s" data-wow-delay=".3s">Contact</li>
+  </ul>
+</div>
+
+<br></br>
+<section class="spline white wrap contact-content">
+  <div class="column-left">
+        <h2 id="contact_form_title" class="wow fadeIn" data-wow-duration="0.75s" data-wow-delay=".5s">Let me know what's on your mind.</h2>
+        <fieldset id="contact_form" class="wow fadeInLeft" data-wow-duration="0.75s" data-wow-delay=".5s">
+          <div id="result"></div>
+          <input type="text" required name="name" id="name" placeholder="Full name" class="floatlabel">
+          <input type="email" required name="email" id="email" placeholder="Email address" class="floatlabel">
+          <textarea name="message" required id="message" placeholder="How can I help you?"></textarea>
+          <span class="respond-time">I'll get back to you as soon as I can.</span>
+          <a> <span class="button blue arrow" id="submit">Send</span> </a>
+        </fieldset>
+        <br></br>
+        <p id="contact_form_submitted" style="display:none;">
+          <span style="font-size:28px;color:black;line-height:1.6em;">Thanks for your submission.</span><br>
+          <span style="font-size:20px;">I'll get in touch with you as soon as I can.</span>
+        </p>
+        <br></br>
+        <br></br>
+        <br></br>
+  </div>
+  <div class="column-right wow fadeInRight" data-wow-duration="0.75s" data-wow-delay=".75s">
+    <h3>You can also find me on:</h3>
+    <ul class="contact-social-links">
+      <li>
+        <a href="https://github.com/vzhou842" title="View my Github" class="underliner github" target="_blank">Github</a>
+        <small>vzhou842</small>
+      </li>
+      <li>
+        <a href="https://twitter.com/victorczhou" title="Follow me on Twitter" class="underliner twitter" target="_blank">Twitter</a>
+        <small>5,782 Followers</small>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/profile/public-profile-settings?trk=prof-edit-edit-public_profile" title="Follow me on LinkedIn" class="underliner linkedin" target="_blank">LinkedIn</a>
+        <small>216 Connections</small>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/channel/UC0pRzrLI_nTitsGMiZw8hLw" title="Follow me on Youtube" class="underliner youtube" target="_blank">Youtube</a>
+        <small>16,010 Views</small>
+      </li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</section>
+<br></br>
+<br></br>
