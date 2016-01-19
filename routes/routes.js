@@ -27,10 +27,6 @@ router.get('/web', function(req, res, next) {
 });
 router.get('/research', function(req, res, next) {
 	res.redirect(req.protocol + '://' + req.get('host') + '/projects/research');
-})
-
-router.get('/*', function(req, res, next) {
-  res.sendFile(global.appRoot + '/public/index.html');	
-})
+});
 
 module.exports = router;
