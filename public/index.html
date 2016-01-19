@@ -1,6 +1,9 @@
 <html lang="en" ng-app="victorzhou">
   <head>
     <title> Victor Zhou </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75">
+
     <!-- CORE CSS -->
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/profile.css">
@@ -42,14 +45,14 @@
     <img src="images/logo.svg" class="navBar-logo">
     <div class="navBar">
       <nav>
-          <ul class="left">
+          <ul class="left" id='nav-left'>
             <li><a ui-sref="profile.about">VICTOR ZHOU</a></li>
           </ul>
-          <ul>
-            <li><a ui-sref="presskits" id="presskits_header">Press Kits</a></li>
-            <li><a ui-sref="contact" id="contact_header">Contact</a></li>
-            <li><a ui-sref="projects.iOS" id="projects_header">Projects</a></li>
+          <ul id='nav-right'>
             <li><a ui-sref="profile.about" id="profile_header">Profile</a></li>
+            <li><a ui-sref="projects.iOS" id="projects_header">Projects</a></li>
+            <li><a ui-sref="contact" id="contact_header">Contact</a></li>
+            <li><a ui-sref="presskits" id="presskits_header">Press Kits</a></li>
           </ul>
       </nav>
     </div>

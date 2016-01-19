@@ -167,6 +167,19 @@ ol li:before {
     margin: 60px 0 -60px 0
 }
 
+@media only screen and (max-width:1000px) {
+    #profile-intro h1 {
+        font-size: 56px;
+        line-height: 1.2em
+    }
+
+    #profile-intro p {
+        padding: 0;
+        font-size: 24px;
+        margin: 0 0 70px !important;
+    }
+}
+
 @media only screen and (max-width:768px) {
     #profile-intro {
         width: 100%;
@@ -178,25 +191,19 @@ ol li:before {
     }
 
     #profile-intro h1 {
-        font-size: 42px;
+        font-size: 52px;
         line-height: 46px;
         margin: 0 0 30px 0
     }
 
     #profile-intro p {
-        padding-right: 30%;
-        max-width: 100%
-    }
-
-    #profile-intro {
-        text-align: center
-    }
-
-    #profile-intro p {
         margin: 0 0 100px !important;
         padding: 0;
-        font-size: 18px
+        font-size: 20px;
+        padding-right: 30%;
+        max-width: 100%;
     }
+
     .col-left, .col-right {
         float: none;
         width: 100%
@@ -217,19 +224,13 @@ ol li:before {
 }
 
 @media only screen and (max-width:480px) {
-    .header.profile {
-        height: 440px
-    }
 
     #profile-intro h1 {
-        font-size: 30px;
-        line-height: 1.2em
+        font-size: 64px;
     }
 
     #profile-intro p {
-        padding: 0;
-        font-size: 16px;
-        margin: 0 0 70px !important
+        font-size: 28px;
     }
 }
 
