@@ -70,6 +70,105 @@ function test(request) {
 				.expect(200, done);
 		});
 	});
+
+	describe('GET /encircle2/maps', function() {
+		var API_URL = '/encircle2/maps';
+		it('Should fail without proper authorization', function(done) {
+			request
+				.get(API_URL)
+				.set(base_unauthorized)
+				.expect('Content-Type', /json/)
+				.expect(401, done);
+		});
+	});
+
+	describe('POST /encircle2/createMap', function() {
+		var API_URL = '/encircle2/createMap';
+		it('Should fail without proper authorization', function(done) {
+			request
+				.post(API_URL)
+				.set(base_unauthorized)
+				.expect('Content-Type', /json/)
+				.expect(401, done);
+		});
+		it('Should return 400 with missing params', function(done) {
+			request
+				.post(API_URL)
+				.set(base_authorized)
+				.expect('Content-Type', /json/)
+				.expect(400, done);
+		});
+	});
+
+	describe('POST /encircle2/incrementPlayCount', function() {
+		var API_URL = '/encircle2/incrementPlayCount';
+		it('Should fail without proper authorization', function(done) {
+			request
+				.post(API_URL)
+				.set(base_unauthorized)
+				.expect('Content-Type', /json/)
+				.expect(401, done);
+		});
+		it('Should return 400 with missing params', function(done) {
+			request
+				.post(API_URL)
+				.set(base_authorized)
+				.expect('Content-Type', /json/)
+				.expect(400, done);
+		});
+	});
+
+	describe('POST /encircle2/addRating', function() {
+		var API_URL = '/encircle2/addRating';
+		it('Should fail without proper authorization', function(done) {
+			request
+				.post(API_URL)
+				.set(base_unauthorized)
+				.expect('Content-Type', /json/)
+				.expect(401, done);
+		});
+		it('Should return 400 with missing params', function(done) {
+			request
+				.post(API_URL)
+				.set(base_authorized)
+				.expect('Content-Type', /json/)
+				.expect(400, done);
+		});
+	});
+
+	describe('POST /encircle2/addCompletion', function() {
+		var API_URL = '/encircle2/addCompletion';
+		it('Should fail without proper authorization', function(done) {
+			request
+				.post(API_URL)
+				.set(base_unauthorized)
+				.expect('Content-Type', /json/)
+				.expect(401, done);
+		});
+		it('Should return 400 with missing params', function(done) {
+			request
+				.post(API_URL)
+				.set(base_authorized)
+				.expect('Content-Type', /json/)
+				.expect(400, done);
+		});
+	});
+
+	describe('/encircle2/fake', function() {
+		var API_URL = '/encircle2/fake';
+		it('GET Should 404 when authorized', function(done) {
+			request
+				.get(API_URL)
+				.set(base_authorized)
+				.expect(404, done);
+		});
+		it('POST Should 404 when authorized', function(done) {
+			request
+				.post(API_URL)
+				.set(base_authorized)
+				.expect(404, done);
+		});
+	});
 }
 
 module.exports = test;
