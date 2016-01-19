@@ -16,11 +16,11 @@ function test(request) {
 		});
 	});
 	describe('GET /projects', function() {
-		it('Should be an HTML page', function(done) {
+		it('Should redirect to /projects/iOS', function(done) {
 			request
 				.get('/projects')
-				.expect('Content-Type', /html/)
-				.expect(200, done);
+				.expect('Content-Type', /plain/)
+				.expect(302, done);
 		});
 	});
 	describe('GET /presskits', function() {
