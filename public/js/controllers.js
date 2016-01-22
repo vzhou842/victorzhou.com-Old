@@ -38,7 +38,7 @@ controllers.controller('iOSProjectsController', ['$scope', function($scope) {
 	}, {
 		name: 'Encircle the Turtle 2',
 		subtitle: 'Test your strategic prowess against a turtle. Yes, you read that right.',
-		descriptionHTML: 'Play through 60 challenging levels with various gameplay features like invisible turtles, twin turtles, and more. Can you outwit a turtle?<br><br>\n\n"A quality puzzle game" <span class="review-source">- TapScape, 8.3/10</span><br>"Super addicting ... it becomes an obsession" <span class="review-source">- AppsHappens</span><br>"You need to get your hands on this" <span class="review-source">- Crazy Mike\'s Apps</span>',
+		descriptionHTML: 'Play through 60 challenging levels with various gameplay features like invisible turtles, twin turtles, and more. Plus, make/share your own Custom Maps and play maps made by other encirclers around the globe. Can you outwit a turtle?<br><br>\n\n"A quality puzzle game" <span class="review-source">- TapScape, 8.3/10</span><br>"Super addicting ... it becomes an obsession" <span class="review-source">- AppsHappens</span><br>"You need to get your hands on this" <span class="review-source">- Crazy Mike\'s Apps</span>',
 		link: 'https://itunes.apple.com/us/app/encircle-the-turtle-2/id824239280?mt=8&uo=4',
 		imageURL: '/images/screenshot_encircle2.png',
 		landscape: true,
