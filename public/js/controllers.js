@@ -85,6 +85,12 @@ controllers.controller('AndroidProjectsController', ['$scope', function($scope) 
 
 controllers.controller('WebProjectsController', ['$scope', function($scope) {
 	$scope.projects = [{
+		name: 'GeoArena Online',
+		subtitle: 'A multiplayer browser game where players control ships in fast-paced 1v1 battles.',
+		descriptionHTML: 'Built using a full javascript stack with HTML5 Canvas, Node.js, and Socket.io.',
+		link: "http://www.geoarena.online",
+		imageURL: '/images/icon_geoArenaOnline.png',
+	}, {
 		name: 'Ontheway',
 		subtitle: 'A peer-to-peer delivery network.',
 		descriptionHTML: 'A Node.js web server and application server for Ontheway, a peer-to-peer delivery network.<br>Visit the website for more information.',
