@@ -7,11 +7,12 @@ var bodyParser = require('body-parser');
 var cluster = require('cluster');
 var compress = require('compression');
 var minify = require('express-minify');
+var os = require('os');
 
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
 
-var WORKERS = process.env.WEB_CONCURRENCY || 1;
+var WORKERS = process.env.WEB_CONCURRENCY || os.cpus();
 if (cluster.isMaster) {
     for (var i = 0; i < WORKERS; i++) {
         cluster.fork();

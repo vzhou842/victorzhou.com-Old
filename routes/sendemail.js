@@ -6,16 +6,17 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'wwwvictorzhoucom@gmail.com',
-        pass: 'wwwvictorzhoucompassword'
+        user: 'vzhou842@gmail.com',
+        pass: process.env.VZ_EMAIL_PASS,
     }
 });
 
 /* POST sendemail */
 router.post('/', function(req, res, next) {
-	var name = req.param('name');
-	var email = req.param('email');
-	var message = req.param('message');
+	console.log('query: ' + JSON.stringify(req.query) + ' body: ' + JSON.stringify(req.body));
+	var name = req.body.name;
+	var email = req.body.email;
+	var message = req.body.message;
 
 	// setup e-mail data with unicode symbols
 	var mailOptions = {
@@ -27,7 +28,7 @@ router.post('/', function(req, res, next) {
 
 	// send mail with defined transport object
 	transporter.sendMail(mailOptions, function(error, info){
-	    if(error){
+	    if (error){
 	        console.log(error);
 	        res.status(500);
 	        return;
