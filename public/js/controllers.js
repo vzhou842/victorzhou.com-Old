@@ -88,7 +88,7 @@ controllers.controller('WebProjectsController', ['$scope', function($scope) {
 		name: 'GeoArena Online',
 		subtitle: 'A multiplayer browser game where players control ships in fast-paced 1v1 battles.',
 		descriptionHTML: 'Built using a full javascript stack with HTML5 Canvas, Node.js, Socket.io, Redis, and MongoDB.<br><br>Voted #1 in Games on <a target="_blank" href="http://producthunt.com/games/geoarena-online">Product Hunt</a>.',
-		link: "http://www.geoarena.online",
+		link: "http://geoarena.online",
 		imageURL: '/images/icon_geoArenaOnline.png',
 	}, {
 		name: 'Ontheway',
