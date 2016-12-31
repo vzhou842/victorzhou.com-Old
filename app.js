@@ -12,7 +12,7 @@ var os = require('os');
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
 
-var WORKERS = process.env.WEB_CONCURRENCY || os.cpus();
+var WORKERS = process.env.WEB_CONCURRENCY || os.cpus().length;
 if (cluster.isMaster) {
     for (var i = 0; i < WORKERS; i++) {
         cluster.fork();
@@ -87,5 +87,6 @@ app.use(function(err, req, res, next) {
 //start listening
 var port = process.env.PORT || '3000';
 app.listen(port);
+console.log('Worker listening on port ' + port);
 
 module.exports = app;
