@@ -15,12 +15,26 @@ controllers.controller('iOSProjectsController', ['$scope', function($scope) {
 		imageURL: '/images/screenshot_ontheway.png',
 		landscape: false,
 	}, {
+		name: 'Moby Dick',
+		subtitle: 'Play as the White Whale from Herman Melville\'s masterpiece Moby Dick.',
+		descriptionHTML: 'Smash ships, eat fish, explore the seas, upgrade, and repeat.',
+		link: 'https://itunes.apple.com/us/app/moby-dick-the-game/id803997829?mt=8&uo=4',
+		imageURL: '/images/screenshot_mobydick.png',
+		landscape: true,
+	}, {
 		name: 'Cloak',
 		subtitle: 'Securely and seamlessly hiding personal information in plain sight.',
 		descriptionHTML: 'First Place Winner of Best Privacy and Security Hacks at HackPrinceton Fall 2015.<br><br>For more information, visit <a href="/cloak" target="_blank">victorzhou.com/cloak</a>.',
 		link: 'https://itunes.apple.com/us/app/cloak-protect-your-information/id1070902484?mt=8&ign-mpt=uo%3D4',
 		imageURL: '/images/screenshot_cloak.png',
 		landscape: false,
+	}, {
+		name: 'Encircle the Turtle 2',
+		subtitle: 'Test your strategic prowess against a turtle. Yes, you read that right.',
+		descriptionHTML: 'Play through 60 challenging levels with various gameplay features like invisible turtles, twin turtles, and more. Plus, make/share your own Custom Maps and play maps made by other encirclers around the globe. Can you outwit a turtle?<br><br>\n\n"A quality puzzle game" <span class="review-source">- TapScape, 8.3/10</span><br>"Super addicting ... it becomes an obsession" <span class="review-source">- AppsHappens</span><br>"You need to get your hands on this" <span class="review-source">- Crazy Mike\'s Apps</span>',
+		link: 'https://itunes.apple.com/us/app/encircle-the-turtle-2/id824239280?mt=8&uo=4',
+		imageURL: '/images/screenshot_encircle2.png',
+		landscape: true,
 	}, {
 		name: 'Flooding Dots',
 		subtitle: 'The sequel to Falling Dots.',
@@ -35,20 +49,6 @@ controllers.controller('iOSProjectsController', ['$scope', function($scope) {
 		link: 'https://itunes.apple.com/us/app/freestylephile/id931357801?mt=8&uo=4',
 		imageURL: '/images/screenshot_freestylephile.png',
 		landscape: false,
-	}, {
-		name: 'Encircle the Turtle 2',
-		subtitle: 'Test your strategic prowess against a turtle. Yes, you read that right.',
-		descriptionHTML: 'Play through 60 challenging levels with various gameplay features like invisible turtles, twin turtles, and more. Plus, make/share your own Custom Maps and play maps made by other encirclers around the globe. Can you outwit a turtle?<br><br>\n\n"A quality puzzle game" <span class="review-source">- TapScape, 8.3/10</span><br>"Super addicting ... it becomes an obsession" <span class="review-source">- AppsHappens</span><br>"You need to get your hands on this" <span class="review-source">- Crazy Mike\'s Apps</span>',
-		link: 'https://itunes.apple.com/us/app/encircle-the-turtle-2/id824239280?mt=8&uo=4',
-		imageURL: '/images/screenshot_encircle2.png',
-		landscape: true,
-	}, {
-		name: 'Moby Dick',
-		subtitle: 'Play as the White Whale from Herman Melville\'s masterpiece Moby Dick.',
-		descriptionHTML: 'Smash ships, eat fish, explore the seas, upgrade, and repeat.',
-		link: 'https://itunes.apple.com/us/app/moby-dick-the-game/id803997829?mt=8&uo=4',
-		imageURL: '/images/screenshot_mobydick.png',
-		landscape: true,
 	}, {
 		name: 'Falling Dots',
 		subtitle: 'Don\'t Tap Red Dots. Tap all the other dots.',
