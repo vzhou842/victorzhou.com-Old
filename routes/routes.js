@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/projects', function(req, res, next) {
-  res.redirect(req.protocol + '://' + req.get('host') + '/projects/iOS');
+  res.redirect(req.protocol + '://' + req.get('host') + '/projects/web');
 });
 router.get('/projects/*', function(req, res, next) {
   res.sendFile(global.appRoot + '/public/index.html');

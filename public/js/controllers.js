@@ -85,22 +85,28 @@ controllers.controller('AndroidProjectsController', ['$scope', function($scope) 
 
 controllers.controller('WebProjectsController', ['$scope', function($scope) {
 	$scope.projects = [{
+		name: 'generals.io',
+		subtitle: 'Protect your general, command your army, take control of land, and capture other generals in this fast-paced multiplayer strategy game.',
+		descriptionHTML: 'Built using React/Redux, Node.js, Socket.io, and Redis.<br><br>As seen on <a target="_blank" href="https://news.ycombinator.com/item?id=13145781">Hacker News</a> and <a target="_blank" href="http://producthunt.com/games/geoarena-online">Product Hunt</a>.<br>Visit the subreddit at <a target="_blank" href="https://reddit.com/r/generalsio">/r/generalsio</a>.',
+		link: "http://generals.io",
+		imageURL: '/images/screenshot_generals.png',
+	}, {
 		name: 'GeoArena Online',
 		subtitle: 'A multiplayer browser game where players control ships in fast-paced 1v1 battles.',
-		descriptionHTML: 'Built using a full javascript stack with HTML5 Canvas, Node.js, Socket.io, Redis, and MongoDB.<br><br>Voted #1 in Games on <a target="_blank" href="http://producthunt.com/games/geoarena-online">Product Hunt</a>.',
+		descriptionHTML: 'Built using a full javascript stack with HTML5 Canvas, Node.js, Socket.io, Redis, and MongoDB.<br><br>Voted #1 in Games on <a target="_blank" href="http://producthunt.com/games/geoarena-online">Product Hunt</a>.<br>Visit the subreddit at <a target="_blank" href="https://reddit.com/r/geoarena">/r/geoarena</a>.',
 		link: "http://geoarena.online",
 		imageURL: '/images/icon_geoArenaOnline.png',
 	}, {
 		name: 'Ontheway',
 		subtitle: 'A peer-to-peer delivery network.',
-		descriptionHTML: 'A Node.js web server and application server for Ontheway, a peer-to-peer delivery network.<br>Visit the website for more information.',
+		descriptionHTML: 'A Node.js web server and application server for Ontheway, a peer-to-peer delivery network.<br>Unfortunately, the site is no longer up.',
 		link: "http://www.ontheway-app.com",
 		imageURL: '/images/screenshot_otw_web.png',
 	}, {
 		name: 'victorzhou.com',
 		subtitle: 'You\'re literally on this website.',
 		descriptionHTML: '100% developed by yours truly. Built using the MEAN (MongoDB, Express.js, Angular.js, Node.js) stack. Consists of a web server for the site and an application server for <a href="https://itunes.apple.com/us/app/encircle-the-turtle-2/id824239280?mt=8&uo=4" target="_blank">Encircle the Turtle 2</a>.<br>View the source code on my <a href="http://www.github.com/vzhou842" target="_blank">Github</a>.',
-		link: "http://www.victorzhou.com",
+		link: "https://www.victorzhou.com",
 		imageURL: '/images/screenshot_victorzhou.png',
 	}, {
 		name: 'Princeton Social Innovation',
