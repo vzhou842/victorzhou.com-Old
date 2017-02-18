@@ -5,7 +5,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 850px;
+    height: 800px;
 }
 
 #vz_projectsHeader
@@ -15,7 +15,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 800px
+    height: 750px;
 }
 
 #vz_contactHeader
@@ -25,7 +25,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 750px
+    height: 700px;
 }
 
 #vz_presskitsHeader
@@ -35,7 +35,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 660px;
+    height: 600px;
 }
 
 .container h1 {
@@ -231,18 +231,18 @@ img.navBar-logo {
     }
 
     #vz_homeHeader {
-        height: 475px;
+        height: 450px;
     }
 
     #vz_projectsHeader {
-        height: 450px
+        height: 425px;
     }
 
     #vz_contactHeader {
-        height: 425px
+        height: 400px;
     }
 
     #vz_presskitsHeader {
-        height: 375px;
+        height: 350px;
     }
 }

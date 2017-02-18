@@ -222,16 +222,3 @@ ol li:before {
         float: none
     }
 }
-
-@media only screen and (max-width:480px) {
-
-    #profile-intro h1 {
-        font-size: 64px;
-    }
-
-    #profile-intro p {
-        font-size: 28px;
-    }
-}
-
-
