@@ -2,7 +2,7 @@
   "name": "victorzhou",
   "version": "0.0.0",
   "scripts": {
-    "start": "node app.js",
+    "start": "NODE_ENV=production node app.js",
     "test": "mocha test/index.js"
   },
   "dependencies": {

@@ -246,3 +246,19 @@ img.navBar-logo {
         height: 350px;
     }
 }
+
+.presskit_icon img {
+    width:200px;
+    height: 200px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, .4);
+    transition: box-shadow 0.5s ease;
+}
+
+.presskit_icon img:hover {
+    box-shadow: 0 0px 30px rgba(0, 0, 0, .4);
+}
+
+.presskit_icon .presskit_title {
+    font-size: 24px;
+    color: black;
+}
