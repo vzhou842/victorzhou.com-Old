@@ -531,19 +531,6 @@ body.down header.clone {
     display: block
 }
 
-.footer .social, .footer .social a {
-    color: rgba(255, 255, 255, .4);
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: .2s color linear
-}
-
-.footer .social a:hover {
-    color: rgba(255, 255, 255, .8)
-}
-
 .footer .copyright {
     margin-top: 60px;
     font-size: 12px;
@@ -575,10 +562,6 @@ body.down header.clone {
 
     .header.blog p {
         margin: 0 auto 40px auto !important
-    }
-
-    .footer .social, .footer .social a {
-        color: rgba(255, 255, 255, .5);
     }
 }
 
