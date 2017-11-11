@@ -63,13 +63,6 @@ controllers.controller('iOSProjectsController', ['$scope', function($scope) {
 		link: 'https://itunes.apple.com/us/app/encircle-the-turtle/id634465881?mt=8&uo=4',
 		imageURL: '/images/screenshot_encircle.png',
 		landscape: true,
-	}, {
-		name: 'Flappy Falcon',
-		subtitle: 'My obligatory Flappy Bird ripoff.',
-		descriptionHTML: 'Remember back when everyone was making clones of Flappy Bird? I jumped on that bandwagon too.<br><br>\n\n"Even more frustrating than the original" <span class="review-source">- satisfied(?) user, 5/5</span>',
-		link: 'https://itunes.apple.com/us/app/flappy-falcon/id821391902?mt=8&uo=4',
-		imageURL: '/images/screenshot_flappyfalcon.png',
-		landscape: false,
 	}];
 }]);
 
@@ -102,17 +95,5 @@ controllers.controller('WebProjectsController', ['$scope', function($scope) {
 		descriptionHTML: 'A Node.js web server and application server for Ontheway, a peer-to-peer delivery network.<br>Unfortunately, the site is no longer up.',
 		link: "http://www.ontheway-app.com",
 		imageURL: '/images/screenshot_otw_web.png',
-	}, {
-		name: 'victorzhou.com',
-		subtitle: 'You\'re literally on this website.',
-		descriptionHTML: '100% developed by yours truly. Built using the MEAN (MongoDB, Express.js, Angular.js, Node.js) stack. Consists of a web server for the site and an application server for <a href="https://itunes.apple.com/us/app/encircle-the-turtle-2/id824239280?mt=8&uo=4" target="_blank">Encircle the Turtle 2</a>.<br>View the source code on my <a href="http://www.github.com/vzhou842" target="_blank">Github</a>.',
-		link: "https://www.victorzhou.com",
-		imageURL: '/images/screenshot_victorzhou.png',
-	}, {
-		name: 'Princeton Social Innovation',
-		subtitle: 'Princeton University\'s Social Innovation club.',
-		descriptionHTML: 'I helped develop the this website as a Web Development Officer in Princeton Social Innovation.',
-		link: 'http://www.princetonsi.com',
-		imageURL: 'images/screenshot_psi.png',
 	}];
 }]);
