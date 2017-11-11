@@ -31,8 +31,5 @@ router.get('/Android', function(req, res, next) {
 router.get('/web', function(req, res, next) {
 	res.redirect(req.protocol + '://' + req.get('host') + '/projects/web');
 });
-router.get('/research', function(req, res, next) {
-	res.redirect(req.protocol + '://' + req.get('host') + '/projects/research');
-});
 
 module.exports = router;

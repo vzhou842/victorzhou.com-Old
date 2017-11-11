@@ -28,9 +28,6 @@ victorzhouApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider
 		url: '/web',
 		templateUrl: 'partials/projects.web.html',
 		controller: 'WebProjectsController',
-	}).state('projects.research', {
-		url: '/research',
-		templateUrl: 'partials/projects.research.html',
 	}).state('privacy-encircle2', {
 		url: '/privacy/encircle2',
 		templateUrl: 'partials/privacy-encircle2.html',

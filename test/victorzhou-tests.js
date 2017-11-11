@@ -71,14 +71,6 @@ function test(request) {
 				.expect(302, done);
 		});
 	});
-	describe('GET /research', function() {
-		it('Should redirect', function(done) {
-			request
-				.get('/research')
-				.expect('Content-Type', /plain/)
-				.expect(302, done);
-		});
-	});
 	describe('GET /fake', function() {
 		it('Should 404', function(done) {
 			request
