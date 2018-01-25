@@ -1,12 +1,10 @@
 <script>
   $(document).ready(function(){
-
     $('#submit').click(function(){
-
       $("#contact_form").fadeOut(400);
       $("#contact_form_title").fadeOut(400);
       setTimeout(function() {
-          $("#contact_form_submitted").fadeIn(400)
+          $("#contact_form_submitted").fadeIn(400);
       }, 350);
 
       var name = $("#name").val();
@@ -14,15 +12,10 @@
       var message = $("#message").val();
 
       var dataString = 'name=' + name + '&email=' + email + '&message=' + message;
-
-      $.post("sendemail", dataString, function(result) {
-
-      });
+      $.post("sendemail", dataString);
 
       return false;
-
     });
-
   });
 
   //Select the Contact navbar item
