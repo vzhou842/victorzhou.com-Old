@@ -93,7 +93,6 @@ controllers.controller('WebProjectsController', ['$scope', function($scope) {
 		name: 'Ontheway',
 		subtitle: 'A peer-to-peer delivery network.',
 		descriptionHTML: 'A Node.js web server and application server for Ontheway, a peer-to-peer delivery network.<br>Unfortunately, the site is no longer up.',
-		link: "http://www.ontheway-app.com",
 		imageURL: '/images/screenshot_otw_web.png',
 	}];
 }]);

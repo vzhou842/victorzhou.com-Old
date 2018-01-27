@@ -8,8 +8,8 @@
 
     <div class="col-md-7">
       <div class="image-wrapper-blank">
-        <center> 
-          <img ng-src="{{project.imageURL}}" alt="{{project.name}}" width="655" height="500"> 
+        <center>
+          <img ng-src="{{project.imageURL}}" alt="{{project.name}}" width="655" height="500">
         </center>
       </div>
     </div>
@@ -24,7 +24,7 @@
             <span ng-bind-html="project.descriptionHTML | unsafe"></span>
           </p>
         </div>
-        <a ng-href='{{project.link}}' target="_blank"> <span class="button blue arrow">Go To Site</span> </a>
+        <a ng-if='project.link' ng-href='{{project.link}}' target="_blank"> <span class="button blue arrow">Go To Site</span> </a>
       </div>
     </div>
 
