@@ -30,11 +30,11 @@ router.post('/', function(req, res, next) {
 	transporter.sendMail(mailOptions, function(error, info){
 	    if (error){
 	        console.log(error);
-	        res.status(500);
+	        res.status(500).end();
 	        return;
 	    }
 	    console.log('Message sent: ' + info.response);
-	    res.status(200);
+	    res.status(200).end();
 	});
 });
 
