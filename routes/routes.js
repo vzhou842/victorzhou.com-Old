@@ -13,9 +13,6 @@ router.get('/contact', function(req, res, next) {
 router.get('/presskits', function(req, res, next) {
   res.sendFile(global.appRoot + '/public/index.html');
 });
-router.get('/resume', function(req, res, next) {
-  res.sendFile(global.appRoot + '/public/index.html');
-});
 router.get('/cloak', function(req, res, next) {
   res.sendFile(global.appRoot + '/public/cloak.html');
 });

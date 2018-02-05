@@ -7,14 +7,6 @@ function test(request) {
 				.expect(200, done);
 		});
 	});
-	describe('GET /resume', function() {
-		it('Should be an HTML page', function(done) {
-			request
-				.get('/resume')
-				.expect('Content-Type', /html/)
-				.expect(200, done);
-		});
-	});
 	describe('GET /projects', function() {
 		it('Should redirect', function(done) {
 			request
