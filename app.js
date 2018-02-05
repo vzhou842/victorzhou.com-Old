@@ -36,8 +36,6 @@ var encircle2 = require('./encircle2/routes');
 
 var app = express();
 
-app.set('view engine', 'jade');
-
 app.use(compress());
 app.use(minify());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -51,35 +49,9 @@ app.use('/', routes);
 app.use('/sendemail', sendemail);
 app.use('/encircle2', encircle2);
 
-// catch 404 and forward to error handler
+// Catch 404
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err,
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {},
-  });
+  res.status(404).sendFile(global.appRoot + '/public/404.html');
 });
 
 //start listening
