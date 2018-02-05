@@ -7,8 +7,8 @@ var cluster = require('cluster');
 var compress = require('compression');
 var minify = require('express-minify');
 var os = require('os');
-
 var path = require('path');
+
 global.appRoot = path.resolve(__dirname);
 
 var WORKERS = process.env.WEB_CONCURRENCY || os.cpus().length;
@@ -67,7 +67,7 @@ if (app.get('env') === 'development') {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: err
+      error: err,
     });
   });
 }
@@ -78,7 +78,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: {},
   });
 });
 
