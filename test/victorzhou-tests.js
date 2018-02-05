@@ -1,6 +1,6 @@
 function test(request) {
 	function expectHTML(url) {
-		return function(done) {
+		return done => {
 			request.get(url)
 				.expect('Content-Type', /html/)
 				.expect(200, done);
@@ -21,38 +21,27 @@ function test(request) {
 			it('Should be an HTML page', expectHTML(path));
 		});
 	});
-	describe('GET /projects', function() {
-		it('Should redirect', function(done) {
-			request
-				.get('/projects')
+
+	function expectRedirect(url) {
+		return done => {
+			request.get(url)
 				.expect('Content-Type', /plain/)
 				.expect(302, done);
+		};
+	}
+
+	const redirectPaths = [
+		'/projects',
+		'/iOS',
+		'/Android',
+		'/web',
+	];
+	redirectPaths.forEach(path => {
+		describe('GET ' + path, () => {
+			it('Should redirect', expectRedirect(path));
 		});
 	});
-	describe('GET /iOS', function() {
-		it('Should redirect', function(done) {
-			request
-				.get('/iOS')
-				.expect('Content-Type', /plain/)
-				.expect(302, done);
-		});
-	});
-	describe('GET /Android', function() {
-		it('Should redirect', function(done) {
-			request
-				.get('/Android')
-				.expect('Content-Type', /plain/)
-				.expect(302, done);
-		});
-	});
-	describe('GET /web', function() {
-		it('Should redirect', function(done) {
-			request
-				.get('/web')
-				.expect('Content-Type', /plain/)
-				.expect(302, done);
-		});
-	});
+
 	describe('GET /fake', function() {
 		it('Should be a 404 HTML page', function(done) {
 			request

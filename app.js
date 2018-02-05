@@ -50,7 +50,7 @@ app.use('/sendemail', sendemail);
 app.use('/encircle2', encircle2);
 
 // Catch 404
-app.use(function(req, res, next) {
+app.use((req, res) => {
   res.status(404).sendFile(global.appRoot + '/public/404.html');
 });
 
