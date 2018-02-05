@@ -5,13 +5,16 @@
     "start": "node app.js",
     "test": "mocha test/index.js"
   },
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
   "dependencies": {
     "body-parser": "~1.13.2",
     "bower": "^1.7.2",
     "cluster": "^0.7.7",
     "compression": "^1.6.0",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
+    "express": "^4.16.2",
     "express-minify": "^0.1.6",
     "jade": "~1.11.0",
     "mongoose": "^4.3.4",
