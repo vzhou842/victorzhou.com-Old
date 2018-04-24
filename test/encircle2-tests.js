@@ -51,7 +51,7 @@ function test(request) {
 				.expect(isArrayOfMaps)
 				.expect(200, done);
 		});
-	});	
+	});
 
 	describe('GET /encircle2/newMaps', function() {
 		var API_URL = '/encircle2/newMaps';

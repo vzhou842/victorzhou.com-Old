@@ -1,6 +1,6 @@
-var port = process.env.PORT || '3000';
-var url = 'localhost:' + port;
-var request = require('supertest')(url);
+const app = require('../server');
+
+var request = require('supertest')(app);
 
 describe('Encircle2 Tests', function() {
 	require('./encircle2-tests.js')(request);
