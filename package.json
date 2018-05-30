@@ -12,14 +12,12 @@
   "dependencies": {
     "body-parser": "~1.13.2",
     "bower": "^1.8.4",
-    "cluster": "^0.7.7",
     "compression": "^1.7.2",
     "express": "^4.16.3",
     "express-minify": "^0.1.6",
     "mongoose": "^4.13.12",
     "morgan": "~1.6.1",
     "nodemailer": "~1.8.0",
-    "os": "^0.1.1",
     "serve-favicon": "^2.3.2"
   },
   "devDependencies": {
