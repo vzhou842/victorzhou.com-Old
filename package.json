@@ -15,10 +15,10 @@
     "compression": "^1.7.2",
     "express": "^4.16.3",
     "express-minify": "^0.1.6",
-    "mongoose": "^4.13.12",
+    "mongoose": "^4.13.14",
     "morgan": "~1.6.1",
     "nodemailer": "~1.8.0",
-    "serve-favicon": "^2.3.2"
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "mocha": "^2.3.4",
