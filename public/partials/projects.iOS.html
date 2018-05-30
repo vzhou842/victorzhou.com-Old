@@ -24,7 +24,7 @@
             <span ng-bind-html="project.descriptionHTML | unsafe"></span>
           </p>
         </div>
-        <a ng-href="{{project.link}}" target="_blank"><img src="images/appstore.svg" id="appstoreimg"></a>
+        <a ng-if='project.link' ng-href="{{project.link}}" target="_blank"><img src="images/appstore.svg" id="appstoreimg"></a>
       </div>
     </div>
 

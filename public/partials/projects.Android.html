@@ -7,8 +7,8 @@
 
     <div class="col-md-7">
       <div class="image-wrapper-blank">
-        <center> 
-          <img ng-src="{{project.imageURL}}" alt="{{project.name}}" width="281" height="500"> 
+        <center>
+          <img ng-src="{{project.imageURL}}" alt="{{project.name}}" width="281" height="500">
         </center>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <span ng-bind-html="project.descriptionHTML | unsafe"></span>
           </p>
         </div>
-        <a ng-href="{{project.link}}" target="_blank"><img src="images/googleplay.svg" id="googleplayimg"></a>
+        <a ng-if='project.link' ng-href="{{project.link}}" target="_blank"><img src="images/googleplay.svg" id="googleplayimg"></a>
       </div>
     </div>
 
