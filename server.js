@@ -32,7 +32,7 @@ app.use((req, res) => {
   res.status(404).sendFile(global.appRoot + '/public/404.html');
 });
 
-//start listening
+// Start HTTP server
 const port = process.env.PORT || '3000';
 app.listen(port);
 console.log(`Worker listening on port ${port}`);
