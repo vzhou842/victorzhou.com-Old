@@ -78,7 +78,7 @@ controllers.controller('WebProjectsController', ['$scope', function($scope) {
 	$scope.projects = [{
 		name: 'generals.io',
 		subtitle: 'Protect your general, command your army, take control of land, and capture other generals in this fast-paced multiplayer strategy game.',
-		descriptionHTML: 'Built using React/Redux, Node.js, Socket.io, and Redis.<br><br>As seen on <a target="_blank" href="https://news.ycombinator.com/item?id=13145781">Hacker News</a> and <a target="_blank" href="http://producthunt.com/games/geoarena-online">Product Hunt</a>.<br>Visit the subreddit at <a target="_blank" href="https://reddit.com/r/generalsio">/r/generalsio</a>.',
+		descriptionHTML: 'Built using React/Redux, Node.js, Socket.io, and Redis.<br><br>As seen on <a target="_blank" href="https://news.ycombinator.com/item?id=13145781">Hacker News</a> and <a target="_blank" href="https://www.producthunt.com/posts/generals-io">Product Hunt</a>.<br>Visit the subreddit at <a target="_blank" href="https://reddit.com/r/generalsio">/r/generalsio</a>.',
 		link: "http://generals.io",
 		imageURL: '/images/screenshot_generals.png',
 	}, {
