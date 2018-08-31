@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 var EncircleMap = require('./models/EncircleMap');
 
 // CONNECT TO MONGOLAB MONGODB DATABASE
-mongoose.connect(process.env.ENCIRCLE2_MONGODB_URL);
+mongoose.connect(process.env.ENCIRCLE2_MONGODB_URL, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {

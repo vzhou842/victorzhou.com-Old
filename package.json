@@ -15,7 +15,7 @@
     "compression": "^1.7.2",
     "express": "^4.16.3",
     "express-minify": "^0.1.6",
-    "mongoose": "^4.13.14",
+    "mongoose": "^5.2.12",
     "morgan": "^1.9.0",
     "nodemailer": "~1.8.0",
     "serve-favicon": "^2.5.0"
